@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<conio.h>
+#include<malloc.h>
+struct node
+{
+int data;
+struct node *link;
+};
+void addq(struct node **,struct node **,int );
+int delq(struct node *f,struct node *r);
+void main()
+{
+struct node *front,*rear;
+clrscr();
+front=rear=NULL;
+addq(&front,&rear,10);
+addq(&front,&rear,20);
+getch();
+}
+void addq(struct node **f,struct node **r,int n)
+{
+struct node *q;
+q=(struct node *)malloc(sizeof(struct node));
+q->data=n;
+q->link=NULL;
+if(*f==NULL)
+{
+*f=*r=q;
+}
+else
+{
+(*r)->link=q;
+printf("%u",(*r)->link);
+(*r)=(*r)->link;
+printf("%u",(*r)->link);
+}
+}
